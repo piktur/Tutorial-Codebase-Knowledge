@@ -1,3 +1,17 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "gitpython >= 3.1.0",
+#     "google-cloud-aiplatform >= 1.25.0",
+#     "google-genai >= 1.9.0",
+#     "pocketflow >= 0.0.1",
+#     "python-dotenv >= 1.0.0",
+#     "pyyaml >= 6.0",
+#     "requests >= 2.28.0"
+# ]
+# ///
+
 import dotenv
 import os
 import argparse
@@ -18,7 +32,7 @@ DEFAULT_INCLUDE_PATTERNS = {
     "*.java",
     "*.pyi",
     "*.pyx",
-    ".vue",
+    "*.vue",
     "*.c",
     "*.cc",
     "*.cpp",
@@ -52,6 +66,8 @@ DEFAULT_EXCLUDE_PATTERNS = {
     "bin/*",
     "node_modules/*",
     "*.log",
+    "tmp",
+    "coveratge",
 }
 
 if os.path.exists(".llmsignore"):

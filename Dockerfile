@@ -30,12 +30,10 @@ ENV PATH="${HOME}/.local/bin:$PATH"
 # You MUST mount the uv cache volume to UV_CACHE_DIR path at runtime.
 RUN --mount=type=cache,target=${UV_CACHE_DIR} \
     --mount=type=bind,source=./,target=/app \
-    --mount=type=bind,source=requirements.txt,target=/app/requirements.txt \
-    uv venv && \
-    uv pip install \
+    uv sync \
         --compile-bytecode \
         --python ${PYTHON_VERSION} \
-        --requirements /app/requirements.txt
+        --script /app/main.py
 
 WORKDIR /app
 
