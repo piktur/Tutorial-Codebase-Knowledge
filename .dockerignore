@@ -1,0 +1,7 @@
+*
+
+!*.py
+!requirements.txt
+!utils
+!docs
+!assets
